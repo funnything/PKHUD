@@ -47,8 +47,8 @@ public final class HUD {
         PKHUD.sharedHUD.show()
     }
     
-    public static func hide(animated animated: Bool = false, completion: (Bool -> Void)? = nil) {
-        PKHUD.sharedHUD.hide(animated: animated, completion: completion)
+    public static func hide(duration duration: NSTimeInterval = 0.8, completion: (Bool -> Void)? = nil) {
+        PKHUD.sharedHUD.hide(duration: duration, completion: completion)
     }
     
     public static func hide(afterDelay delay: NSTimeInterval = 1.0, completion: (Bool -> Void)? = nil) {
@@ -58,7 +58,7 @@ public final class HUD {
     // MARK: Public methods, HUD based
     public static func flash(content: HUDContentType) {
         HUD.show(content)
-        HUD.hide(animated: true, completion: nil)
+        HUD.hide(duration: 0.8, completion: nil)
     }
     
     public static func flash(content: HUDContentType, withDelay delay: NSTimeInterval) {

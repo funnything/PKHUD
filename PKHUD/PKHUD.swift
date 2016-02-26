@@ -80,8 +80,8 @@ public class PKHUD: NSObject {
         startAnimatingContentView()
     }
     
-    public func hide(animated anim: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        window.hideFrameView(animated: anim, completion: completion)
+    public func hide(duration duration: NSTimeInterval = 0.8, completion: ((Bool) -> Void)? = nil) {
+        window.hideFrameView(duration: duration, completion: completion)
         stopAnimatingContentView()
     }
     
@@ -103,7 +103,7 @@ public class PKHUD: NSObject {
     }
     
     internal func performDelayedHide(timer: NSTimer? = nil) {
-        hide(animated: true, completion: timer?.userInfo?["completionKey"] as? ((Bool) -> Void));
+        hide(duration: 0.8, completion: timer?.userInfo?["completionKey"] as? ((Bool) -> Void));
     }
     
     internal func startAnimatingContentView() {
